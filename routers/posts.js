@@ -21,7 +21,7 @@ router.get('/:id', postsController.show);
 
 // Rotta CREATE - crea un nuovo post
 router.post('/', postsController.create);
-
+//
 
 
 // Rotta UPDATE - modifica un post (tramite ID)
