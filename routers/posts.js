@@ -33,4 +33,4 @@ router.delete('/:id', postsController.destroy);
 // Esportiamo il router per usarlo in app.js
 module.exports = router;
 
-// // In questo file abbiamo definito le rotte per gestire i post. Ogni rotta è associata a una funzione del controller 
+// //// In questo file abbiamo definito le rotte per gestire i post. Ogni rotta è associata a una funzione del controller 
