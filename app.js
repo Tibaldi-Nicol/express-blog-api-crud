@@ -23,6 +23,22 @@ app.use((req, res) => {
   });
 });
 
+//Gestisce gli errori che vengono spassati a next() all'interno dell'applicazione
+
+app.use((err, req, res, next) => {
+  console.error(err.stack); // Logga l'errore nel server
+  
+  // Risponde con status 500 e un messaggio JSON
+  res.status(500).json({
+    error: 'Si è verificato un errore sul server',
+    message: process.env.NODE_ENV === 'development' ? err.message : 'Errore interno'
+  });
+});
+
+
+
+
+
 // Facciamo partire il server sulla porta 3000
 const PORT = 3000;
 app.listen(PORT, () => {
