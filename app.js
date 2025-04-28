@@ -14,6 +14,15 @@ app.use(express.json());
 // Diciamo a Express di usare il router dei post su ogni rotta che inizia con /posts
 app.use('/posts', postsRouter);
 
+// middleware se le rote non vengono trovate 
+app.use((req, res) => {
+  // Risponde con status 404 e un messaggio JSON
+  res.status(404).json({
+    error: 'Risorsa non trovata',
+    url: req.originalUrl
+  });
+});
+
 // Facciamo partire il server sulla porta 3000
 const PORT = 3000;
 app.listen(PORT, () => {
